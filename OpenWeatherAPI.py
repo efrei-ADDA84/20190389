@@ -1,10 +1,9 @@
 import os
-
 import requests
 
 def get_weather():
     lat = os.getenv('LAT')
-    lon = os.getenv('LON')
+    lon = os.getenv('LONG')
     api_key = os.getenv('API_KEY')
     if (lat==None):
         print('You don\'t define lat long or api key')
