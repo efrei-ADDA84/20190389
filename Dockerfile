@@ -1,13 +1,12 @@
-# syntax=docker/dockerfile:1
 FROM ubuntu:latest
-RUN apt-get -y update && apt-get install -y pip
 
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get upgrade -yq && \
+    apt-get install -y python3 python3-pip && \
+    rm -rf /var/lib/apt/lists/*
 
-# Copiez le code source dans le conteneur
 COPY OpenWeatherAPI.py .
 
-# Installez les dépendances
-RUN pip install requests
+RUN pip3 install --no-cache-dir requests
 
-# Exécutez la commande pour lancer l'application
-CMD ["python", "OpenWeatherAPI.py"]
+CMD ["python3", "OpenWeatherAPI.py"]
