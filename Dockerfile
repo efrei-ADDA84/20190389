@@ -1,5 +1,7 @@
-# Utilisez l'image de base Python 3.9
-FROM python:3.9
+# syntax=docker/dockerfile:1
+FROM ubuntu:latest
+RUN apt-get -y update && apt-get install -y pip
+
 
 # Copiez le code source dans le conteneur
 COPY OpenWeatherAPI.py .

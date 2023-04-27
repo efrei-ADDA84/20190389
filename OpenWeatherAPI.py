@@ -5,7 +5,7 @@ def get_weather():
     lat = os.getenv('LAT')
     lon = os.getenv('LONG')
     api_key = os.getenv('API_KEY')
-    if (lat==None):
+    if (lat==None or lon==None or api_key==None):
         print('You don\'t define lat long or api key')
         exit(1)
     url = "http://api.openweathermap.org/data/2.5/weather?"
