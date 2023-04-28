@@ -8,12 +8,10 @@ app = Flask(__name__)
 def weather():
     lat = request.args.get("lat")
     lon = request.args.get("lon")
-    api_key = os.environ.get('API_KEY')
 
-    url = "http://api.openweathermap.org/data/2.5/weather?"
-    final_url = url + "appid=" + api_key + "&lat=" + lat + "&lon=" + lon
+    url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={os.environ.get('API_KEY')}"
 
-    response = requests.get(final_url)
+    response = requests.get(url)
 
     if response.status_code == 200:
         data = response.json()
@@ -27,4 +25,5 @@ def weather():
         return 'Une erreur est survenue lors de la récupération des informations météorologiques.'
 
 if __name__ == "__main__":
+    app.debug = True
     app.run(host="0.0.0.0", port=8081)

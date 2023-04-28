@@ -5,7 +5,6 @@ RUN apt-get update && \
     apt-get install -y python3 python3-pip && \
     rm -rf /var/lib/apt/lists/*
 
-ENV API_KEY='73be3cf6a28318fcb773a20a6681ae68'
 COPY OpenWeatherAPI.py .
 
 RUN pip3 install --no-cache-dir requests &&\
