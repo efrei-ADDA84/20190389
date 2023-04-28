@@ -11,4 +11,4 @@ RUN pip3 install --no-cache-dir requests &&\
     pip3 install flask
 
 EXPOSE 5000
-CMD ["python3", "main.py"]
+CMD ["python3", "OpenWeatherAPI.py"]
