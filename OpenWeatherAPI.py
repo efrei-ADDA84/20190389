@@ -8,8 +8,8 @@ app = Flask(__name__)
 def weather():
     lat = request.args.get("lat")
     lon = request.args.get("lon")
-
-    url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={os.environ.get('API_KEY')}"
+    api_key = os.getenv('API_KEY')
+    url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}"
 
     response = requests.get(url)
 
