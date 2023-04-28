@@ -1,24 +1,30 @@
 import os
 import requests
+from flask import Flask, request
 
-def get_weather():
-    lat = os.getenv('LAT')
-    lon = os.getenv('LONG')
-    api_key = os.getenv('API_KEY')
-    if (lat==None or lon==None or api_key==None):
-        print('You don\'t define lat long or api key')
-        exit(1)
+app = Flask(__name__)
+
+@app.route("/")
+def weather():
+    lat = request.args.get("lat")
+    lon = request.args.get("lon")
+    api_key = os.environ.get('API_KEY')
+
     url = "http://api.openweathermap.org/data/2.5/weather?"
-    Final_url = url + "appid=" + api_key + "&lat=" + lat + "&lon=" + lon
+    final_url = url + "appid=" + api_key + "&lat=" + lat + "&lon=" + lon
 
-    response = requests.get(Final_url)
+    response = requests.get(final_url)
+
     if response.status_code == 200:
         data = response.json()
-        weather = data['weather'][0]['description']
-        temp = data['main']['temp']
-        return f'Le temps à la latitude {lat} et longitude {lon} est {weather} avec une température de {temp} degrés Celsius.'
+        if 'main' in data and 'temp' in data['main'] and 'weather' in data and len(data['weather']) > 0 and 'description' in data['weather'][0]:
+            weather = data['weather'][0]['description']
+            temp = data['main']['temp']
+            return f'Le temps à la latitude {lat} et longitude {lon} est {weather} avec une température de {temp} degrés Celsius.'
+        else:
+            return 'Impossible de récupérer les informations météorologiques.'
     else:
         return 'Une erreur est survenue lors de la récupération des informations météorologiques.'
 
-if __name__ == '__main__':
-    print(get_weather())
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8081)

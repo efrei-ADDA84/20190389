@@ -3,7 +3,7 @@ name: Build and Publish Docker Image
 on:
   push:
     branches:
-      - main
+      - TP2
 
 jobs:
   build-and-push-image:
@@ -24,4 +24,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: arnaudcp/openweather:latest
+          tags: arnaudcp/efrei-devops-tp2:latest
