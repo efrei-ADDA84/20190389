@@ -10,4 +10,5 @@ COPY OpenWeatherAPI.py .
 RUN pip3 install --no-cache-dir requests &&\
     pip3 install flask
 
+EXPOSE 5000
 CMD ["flask", "run", "--host", "0.0.0.0"]
