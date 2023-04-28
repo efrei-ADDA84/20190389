@@ -9,6 +9,8 @@ def weather():
     lat = request.args.get("lat")
     lon = request.args.get("lon")
     api_key = os.getenv('API_KEY')
+    print(api_key)
+
     url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}"
 
     response = requests.get(url)
@@ -26,4 +28,4 @@ def weather():
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(host="0.0.0.0", port=8081)
+    app.run(host="0.0.0.0", port=3000)
