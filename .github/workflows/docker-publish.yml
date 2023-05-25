@@ -37,6 +37,8 @@ jobs:
           registry-password: ${{ secrets.REGISTRY_PASSWORD }}
           location: west europe
           ports : 8081
+          environment-variables: |
+            API_KEY=${{ secrets.API_KEY }}
 
 
 
