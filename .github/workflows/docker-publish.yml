@@ -34,3 +34,4 @@ jobs:
             --location francecentral \
             --dns-name-label devops-20190389 \
             --ports 80
+            --registry-username ${{ secrets.REGISTRY_USERNAME }}
