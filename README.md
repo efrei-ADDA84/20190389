@@ -1,21 +1,12 @@
 # OpenWeather API
 This project is a Python application that retrieves weather information using the OpenWeather API based on latitude, longitude, and API key provided as environment variables.
 
-## Getting Started
-To run this application, you need to have Docker installed on your computer. Once you have Docker installed, you can follow these steps:
-
-* Clone the repository: 
-  `git clone https://github.com/arnaudcp/openweather.git` <br>
-* Navigate to the project directory: `cd openweather` <br>
-* Build the Docker image: `docker build -t arnaudcp/openweather:1.6 .`<br>
-* Run the Docker container with the environment variables set: `docker run --env LAT='<latitude>' --env LONG='<longitude>' --env API_KEY='<api_key>' arnaudcp/openweather:1.6`
-
 ## Usage
-To retrieve weather information, set the environment variables LAT, LONG, and API_KEY in the Docker command.  Replace `<latitude>`, `<longitude>`, and <api_key> with your values.
+To retrieve weather information, set the environment variables LAT et LONG in your command.  Replace `<latitude>` and `<longitude>` with your values.
 
 The command to run the Docker container is as follows:
 
-```docker run --env LAT='<latitude>' --env LONG='<longitude>' --env API_KEY='<api_key>' arnaudcp/openweather:1.6```
+```curl "http://devops-20190389.westeurope.azurecontainer.io:8081/?lat=5.902785&lon=102.754175"```
 
 ## Dependencies
 This project uses the following dependencies:
