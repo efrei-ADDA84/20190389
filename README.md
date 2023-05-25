@@ -16,5 +16,8 @@ These dependencies are installed automatically when building the Docker image.
 ## Dockerfile
 Our Dockerfile is based on the latest Ubuntu image and installs Python 3 and pip. <br> It then copies the OpenWeatherAPI.py file into the container and installs the requests library using pip. Finally, it sets the default command to run the OpenWeatherAPI.py file using Python 3.
 
+## Difficulties
+The difficulties encountered were to manage the ports of the server and the writing of the yaml file (deploy to Azure Registery Container)
+
 ## Credits
 This project was created by ArnaudCP8.
