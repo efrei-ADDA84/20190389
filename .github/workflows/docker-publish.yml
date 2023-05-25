@@ -36,6 +36,7 @@ jobs:
           registry-username: ${{ secrets.REGISTRY_USERNAME }}
           registry-password: ${{ secrets.REGISTRY_PASSWORD }}
           location: west europe
+          ports : 8081
 
 
 
