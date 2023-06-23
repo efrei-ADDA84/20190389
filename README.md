@@ -1,6 +1,6 @@
 # Résumé du TP DevOps avec Terraform
 
-Ce README résume les étapes que nous avons suivies pour accomplir le TP DevOps en utilisant Terraform pour créer une machine virtuelle Azure avec une adresse IP publique dans un réseau existant, ainsi que d'autres tâches liées au DevOps.
+Ce README résume les étapes pour accomplir le TP DevOps en utilisant Terraform pour créer une machine virtuelle Azure avec une adresse IP publique dans un réseau existant.
 
 ## Étapes du TP
 
